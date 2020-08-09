@@ -1,0 +1,162 @@
+{
+  "world": {
+    "width": 3700,
+    "height": 1000
+  },
+  "player": {
+    "x": 100,
+    "y": 800
+  },
+  "goal": {
+    "x": 400,
+    "y": 100
+  },
+
+  "platforms": [
+    {
+      "key": "brick",
+      "x": 500,
+      "y": 910,
+      "numTiles": 2,
+      "depth": 0
+    },
+    {
+      "key": "brick",
+      "x": 564,
+      "y": 846,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground1",
+      "x": 32,
+      "y": 968,
+      "numTiles": 120,
+      "depth": 0
+    },
+    {
+      "key": "frame",
+      "x": 200,
+      "y": 888,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "frame",
+      "x": 1000,
+      "y": 888,
+      "numTiles": 2,
+      "depth": 0
+    },
+    {
+      "key": "ground1left",
+      "x": 3000,
+      "y": 904,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground1",
+      "x": 3063,
+      "y": 904,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground1right",
+      "x": 3126,
+      "y": 904,
+      "numTiles": 1,
+      "depth": 0
+    }
+
+
+  ],
+
+  "decor": [
+    {
+      "key": "background",
+      "x": 370,
+      "y": 500,
+      "numTiles": 5,
+      "depth": -100
+    },
+
+    {
+      "key": "grass1",
+      "x": 32,
+      "y": 933,
+      "numTiles": 120,
+      "depth": 1
+    },
+    {
+      "key": "pagoda_roof",
+      "x": 200,
+      "y": 818,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "shade",
+      "x": 200,
+      "y": 888,
+      "numTiles": 1,
+      "depth": 100
+    },
+    {
+      "key": "barrel",
+      "x": 160,
+      "y": 920,
+      "numTiles": 1,
+      "depth": 1
+    },
+    {
+      "key": "barrel",
+      "x": 190,
+      "y": 920,
+      "numTiles": 1,
+      "depth": 1
+    },
+
+    {
+      "key": "tree",
+      "x": 1300,
+      "y": 830,
+      "numTiles": 1,
+      "depth": -1
+    },
+    {
+      "key": "tree",
+      "x": 1740,
+      "y": 830,
+      "numTiles": 1,
+      "depth": -1
+    }
+  ],
+
+  "enemies": [
+    {
+      "key": "peasant",
+      "x": 30,
+      "y": 805,
+      "minX": 10,
+      "maxX": 330,
+      "direction": 1,
+      "speed": 100,
+      "depth": 1,
+      "anim": "peasant_walking"
+    },
+    {
+      "key": "peasant",
+      "x": 1000,
+      "y": 805,
+      "minX": 900,
+      "maxX": 1300,
+      "direction": -1,
+      "speed": 100,
+      "depth": 1,
+      "anim": "peasant_walking"
+    }
+
+  ]
+}
