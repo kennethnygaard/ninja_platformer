@@ -9,6 +9,8 @@ gameScene.jumpStrength = -600;
 gameScene.heart = [];
 gameScene.lives = 3;
 
+gameScene.inShadow = false;
+
 gameScene.dying = false;
 
 var coll = {

@@ -58,7 +58,9 @@ gameScene.create = function(){
   this.playerPlatformCollider = this.physics.add.collider(this.player, this.platforms);
   this.physics.add.collider(this.enemies, this.platforms);
 
-  this.physics.add.overlap(this.player, this.enemies, this.collide_with_enemies);
+  this.enemiesOverlap = this.physics.add.overlap(this.player, this.enemies, this.collide_with_enemies);
+  this.shadowsOverlap = this.physics.add.overlap(this.player, this.shadows, this.shadows_overlap)
+
 
   for(let i=0; i<3; i++){
     gameScene.heart[i] = gameScene.add.image(20+ i*35, 20, 'heart');
@@ -76,4 +78,10 @@ gameScene.create = function(){
   })
 
 
+
+}
+
+gameScene.shadows_overlap = function(thing1, thing2){
+  gameScene.inShadow = true;
+  // if(thing2.body.gameObject.texture.key);
 }

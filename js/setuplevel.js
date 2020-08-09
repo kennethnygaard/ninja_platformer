@@ -9,6 +9,7 @@ gameScene.setupLevel = function(){
   this.platforms = this.physics.add.staticGroup();
   this.enemies = this.physics.add.group();
 
+  this.shadows = this.physics.add.staticGroup();
 
   this.levelData.platforms.forEach((platform)=>{
     let newObj;
@@ -49,6 +50,14 @@ gameScene.setupLevel = function(){
       newObj.setScrollFactor(0.75);
     }
   });
+
+  this.levelData.shadows.forEach((item)=>{
+    let newObj;
+    newObj = this.add.sprite(item.x, item.y, item.key);
+    newObj.setDepth(item.depth);
+    this.add.existing(newObj);
+    this.shadows.add(newObj);
+  })
 
   this.levelData.enemies.forEach((enemy)=>{
       let newEnemy;

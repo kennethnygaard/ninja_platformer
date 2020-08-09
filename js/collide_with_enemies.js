@@ -9,8 +9,8 @@ gameScene.collide_with_enemies = function(){
     if(!gameScene.dying){
       console.log(gameScene.jumpStrength + " dying: " + gameScene.dying);
 
+      gameScene.player.body.position.y -= 5;
       gameScene.player.body.setVelocityY(gameScene.jumpStrength+100);
-
 
       gameScene.lives--;
 

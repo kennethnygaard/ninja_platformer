@@ -49,7 +49,7 @@ gameScene.update = function(){
 
 
     if(this.player.body.velocity.x == 0){   //idle or hiding
-      if(this.cursors.keyH.isDown){
+      if(this.cursors.keyH.isDown && gameScene.inShadow){
 
         if(this.currentAnim != 'hiding'){
           this.player.anims.stop('idle');
@@ -86,22 +86,12 @@ gameScene.update = function(){
       }
     }
 
-
-
-    // if(enemy.body.position.x < 1){
-    //   enemy.body.setVelocityX(100);
-    //   enemy.flipX = false;
-    // } else if(enemy.body.position.x > gameScene.levelData.world.width-enemy.body.width-2){
-    //
-    //   enemy.body.setVelocityX(-100);
-    //   enemy.flipX = true;
-    //
-    // }
   });
 
 
-  // handling enemy movement; turning
+  // manually check for overlap with shadows??
 
+  // console.log(gameScene.player.body);
 
 
   // player dying, bottom of screen
@@ -109,18 +99,20 @@ gameScene.update = function(){
   if(this.player.body.position.y > this.levelData.world.height - gameScene.player.body.height-2){
     restart();
   }
+
+  this.inShadow = false;  // overlap-checks seems to happen before udpate();
+
 }
 
 function restart(){
-
   gameScene.dying = false;
 
-
   if(gameScene.lives>0){
+
     gameScene.player.body.position.x = gameScene.levelData.player.x;
     gameScene.player.body.position.y = gameScene.levelData.player.y;
-    gameScene.player.body.velocity.x = 0;
-    gameScene.player.body.velocity.y = 0;
+    //gameScene.player.body.velocity.x = 0;
+    //gameScene.player.body.velocity.y = 0;
 
     gameScene.playerPlatformCollider = gameScene.physics.add.collider(gameScene.player, gameScene.platforms);
   } else {

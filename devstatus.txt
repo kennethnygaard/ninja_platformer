@@ -2,3 +2,5 @@
 player does not jump when dying second++ time
 setVelocityY does not seem to take..
 
+9.aug 22:03 - fixed bug?
+added shadows overlap check; can only hide in shadows..
