@@ -7,6 +7,9 @@ gameScene.currentAnim = 'abc';
 gameScene.jumpStrength = -600;
 
 gameScene.heart = [];
+gameScene.lives = 3;
+
+gameScene.dying = false;
 
 var coll = {
   'brick' : {

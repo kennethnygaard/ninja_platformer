@@ -55,21 +55,17 @@ gameScene.create = function(){
   this.cameras.main.setBounds(0, 0, this.levelData.world.width, this.levelData.world.height);
   this.cameras.main.startFollow(this.player);
 
-  this.physics.add.collider([this.player, this.enemies], this.platforms);
+  this.playerPlatformCollider = this.physics.add.collider(this.player, this.platforms);
+  this.physics.add.collider(this.enemies, this.platforms);
 
   this.physics.add.overlap(this.player, this.enemies, this.collide_with_enemies);
 
   for(let i=0; i<3; i++){
-    gameScene.heart[0] = gameScene.add.image(20+ i*35, 20, 'heart');
-    gameScene.heart[0].setScale(2);
-    gameScene.heart[0].setScrollFactor(0);
-    gameScene.heart[0].setVisible(true);
+    gameScene.heart[i] = gameScene.add.image(20+ i*35, 20, 'heart');
+    gameScene.heart[i].setScale(2);
+    gameScene.heart[i].setScrollFactor(0);
+    gameScene.heart[i].setVisible(true);
   }
-
-  gameScene.heart[0] = gameScene.add.image(20, 20, 'heart');
-  gameScene.heart[0].setScale(0.25);
-  gameScene.heart[0].setScrollFactor(0);
-  gameScene.heart[0].setVisible(true);
 
   this.cursors = this.input.keyboard.createCursorKeys();
   this.cursors.keyH = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.H);

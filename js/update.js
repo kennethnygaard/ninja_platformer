@@ -104,5 +104,28 @@ gameScene.update = function(){
 
 
 
+  // player dying, bottom of screen
 
+  if(this.player.body.position.y > this.levelData.world.height - gameScene.player.body.height-2){
+    restart();
+  }
+}
+
+function restart(){
+
+  gameScene.dying = false;
+
+
+  if(gameScene.lives>0){
+    gameScene.player.body.position.x = gameScene.levelData.player.x;
+    gameScene.player.body.position.y = gameScene.levelData.player.y;
+    gameScene.player.body.velocity.x = 0;
+    gameScene.player.body.velocity.y = 0;
+
+    gameScene.playerPlatformCollider = gameScene.physics.add.collider(gameScene.player, gameScene.platforms);
+  } else {
+    gameScene.player.setVisible(false);
+  }
+
+  //gameScene.physics.world.addCollider(gameScene.playerPlatformCollider);
 }

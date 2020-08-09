@@ -1,0 +1,3 @@
+9.aug.2020; bug
+player does not jump when dying second++ time
+
