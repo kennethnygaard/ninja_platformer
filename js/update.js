@@ -26,11 +26,41 @@ gameScene.update = function(){
     }
   }
 
+  if(this.cursors.space.isDown){
+
+    if(gameScene.readyToFire && gameScene.numStars > 0){
+      let star = this.ninjastars.get(this.player.body.position.x+this.player.body.halfWidth, this.player.body.position.y+this.player.body.halfHeight, 'ninjastar');
+
+      star.anims.play('ninjastar');
+      let velX;
+      this.player.flipX ? velX=-700 : velX = 700;
+      star.body.setVelocityX(velX);
+      star.body.setVelocityY(-200);
+
+      gameScene.numStars--;
+
+    }
+    gameScene.readyToFire = false;
+
+  }
+
+  this.ninjastars.getChildren().forEach((star)=>{
+    if(star.body.position.y > 1000){
+      star.destroy();
+    }
+  })
+
+  if(this.cursors.space.isUp){
+    gameScene.readyToFire = true;
+  }
+
   this.player.body.setVelocityX(gameScene.playerSpeed);
 
   if(this.cursors.up.isDown && this.player.body.touching.down) {
     this.player.body.setVelocityY(gameScene.jumpStrength);
   }
+
+
 
 
 
@@ -88,10 +118,7 @@ gameScene.update = function(){
 
   });
 
-
-  // manually check for overlap with shadows??
-
-  // console.log(gameScene.player.body);
+  updateNinjastars();
 
 
   // player dying, bottom of screen
@@ -99,6 +126,9 @@ gameScene.update = function(){
   if(this.player.body.position.y > this.levelData.world.height - gameScene.player.body.height-2){
     restart();
   }
+
+  peasantAttack();
+  removeKnives();
 
   this.inShadow = false;  // overlap-checks seems to happen before udpate();
 
@@ -111,13 +141,84 @@ function restart(){
 
     gameScene.player.body.position.x = gameScene.levelData.player.x;
     gameScene.player.body.position.y = gameScene.levelData.player.y;
-    //gameScene.player.body.velocity.x = 0;
-    //gameScene.player.body.velocity.y = 0;
-
     gameScene.playerPlatformCollider = gameScene.physics.add.collider(gameScene.player, gameScene.platforms);
+    gameScene.player.flipY = false;
   } else {
     gameScene.player.setVisible(false);
+    gameScene.gameover.setVisible(true);
   }
 
   //gameScene.physics.world.addCollider(gameScene.playerPlatformCollider);
+}
+
+function updateNinjastars(){
+
+  for(let i=0; i<gameScene.maxNinjastars; i++){
+    if(i<gameScene.numStars){
+      gameScene.stars[i].setVisible(true);
+    } else {
+      gameScene.stars[i].setVisible(false);
+    }
+  }
+}
+
+function peasantAttack(){
+
+
+  let e = gameScene.enemies.getChildren().forEach((e)=>{
+
+    let p = gameScene.player;
+
+    let dir;
+    if(e.body.velocity.x > 0) {
+      dir = 1;
+    } else {
+      dir = -1;
+    }
+
+    let diffX = e.body.position.x - p.body.position.x;
+    let diffY = e.body.position.y - p.body.position.y;
+
+    let withinRangeY;
+    if(Math.abs(diffY) < 40){
+      withinRangeY = true;
+    }
+    let range = 200;
+    let withinRangeX = false;
+    if(Math.abs(diffX) < 200) {
+      if(dir==-1 && diffX > 0){
+        withinRangeX = true;
+      }
+      if(dir==1 && diffX < 0){
+        withinRangeX = true;
+      }
+    }
+
+    if(gameScene.currentAnim != 'hiding' && e.isAlive && e.readyToFire && withinRangeX && withinRangeY){
+      let e_pos = e.body.position;
+      let p_pos = p.body.position;
+      let newKnife = gameScene.add.sprite(e_pos.x + e.body.halfWidth, e_pos.y+e.body.halfHeight, 'knife');
+      gameScene.add.existing(newKnife);
+      gameScene.knives.add(newKnife);
+
+      newKnife.body.setVelocityX(700 * dir);
+      newKnife.body.setVelocityY(-200);
+      if(dir>0)newKnife.flipX = true;
+
+      e.readyToFire = false;
+
+      setTimeout(function(){ e.readyToFire = true; }, 1000);
+    }
+
+  });
+
+}
+
+function removeKnives(){
+
+  gameScene.knives.getChildren().forEach((knife)=>{
+    if(knife.body.position.y > gameScene.levelData.world.height){
+      knife.destroy();
+    };
+  })
 }

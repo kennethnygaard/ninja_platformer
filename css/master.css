@@ -4,5 +4,5 @@ body {
 }
 
 canvas {
-  width: 640px;
+  width: 100%;
 }

@@ -4,7 +4,7 @@
     "height": 1000
   },
   "player": {
-    "x": 150,
+    "x": 1500,
     "y": 780
   },
   "goal": {
@@ -13,20 +13,7 @@
   },
 
   "platforms": [
-    {
-      "key": "brick",
-      "x": 500,
-      "y": 910,
-      "numTiles": 2,
-      "depth": 0
-    },
-    {
-      "key": "brick",
-      "x": 564,
-      "y": 846,
-      "numTiles": 1,
-      "depth": 0
-    },
+
     {
       "key": "ground1",
       "x": 32,
@@ -36,7 +23,7 @@
     },
     {
       "key": "frame",
-      "x": 200,
+      "x": 600,
       "y": 888,
       "numTiles": 1,
       "depth": 0
@@ -45,30 +32,122 @@
       "key": "frame",
       "x": 1000,
       "y": 888,
-      "numTiles": 2,
+      "numTiles": 1,
       "depth": 0
     },
     {
       "key": "ground1left",
-      "x": 3000,
+      "x": 1501,
       "y": 904,
       "numTiles": 1,
       "depth": 0
     },
     {
       "key": "ground1",
-      "x": 3063,
+      "x": 1563,
       "y": 904,
       "numTiles": 1,
       "depth": 0
     },
     {
       "key": "ground1right",
-      "x": 3126,
+      "x": 1625,
       "y": 904,
       "numTiles": 1,
       "depth": 0
+    },
+    {
+      "key": "ground2left",
+      "x": 1900,
+      "y": 804,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground2",
+      "x": 1962,
+      "y": 804,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground2right",
+      "x": 2025,
+      "y": 804,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground2left",
+      "x": 2100,
+      "y": 654,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground2",
+      "x": 2162,
+      "y": 654,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground2right",
+      "x": 2225,
+      "y": 654,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground2left",
+      "x": 1625,
+      "y": 554,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground2",
+      "x": 1783,
+      "y": 554,
+      "numTiles": 4,
+      "depth": 0
+    },
+    {
+      "key": "ground2right",
+      "x": 1942,
+      "y": 554,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground2left",
+      "x": 1225,
+      "y": 454,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "ground2",
+      "x": 1320,
+      "y": 454,
+      "numTiles": 2,
+      "depth": 0
+    },
+    {
+      "key": "ground2right",
+      "x": 1414,
+      "y": 454,
+      "numTiles": 1,
+      "depth": 0
     }
+
+
+
+
+
+
+
+
 
 
   ],
@@ -85,27 +164,34 @@
     {
       "key": "grass1",
       "x": 32,
-      "y": 933,
+      "y": 934,
       "numTiles": 120,
       "depth": 1
     },
     {
       "key": "pagoda_roof",
-      "x": 200,
+      "x": 600,
+      "y": 818,
+      "numTiles": 1,
+      "depth": 0
+    },
+    {
+      "key": "pagoda_roof",
+      "x": 1000,
       "y": 818,
       "numTiles": 1,
       "depth": 0
     },
     {
       "key": "barrel",
-      "x": 160,
+      "x": 560,
       "y": 920,
       "numTiles": 1,
       "depth": 1
     },
     {
       "key": "barrel",
-      "x": 190,
+      "x": 590,
       "y": 920,
       "numTiles": 1,
       "depth": 1
@@ -124,27 +210,42 @@
       "y": 830,
       "numTiles": 1,
       "depth": -1
+    },
+    {
+      "key": "tree",
+      "x": 3340,
+      "y": 830,
+      "numTiles": 1,
+      "depth": -1
+    },
+    {
+      "key": "bush1",
+      "x": 900,
+      "y": 910,
+      "numTiles": 1,
+      "depth": -10
+    },
+    {
+      "key": "bush1",
+      "x": 940,
+      "y": 915,
+      "numTiles": 1,
+      "depth": 1
     }
   ],
 
   "shadows": [
     {
       "key": "shade",
-      "x": 200,
+      "x": 600,
       "y": 888,
       "numTiles": 1,
       "depth": 100
     },
+
     {
       "key": "shade",
-      "x": 919,
-      "y": 889,
-      "numTiles": 1,
-      "depth": 100
-    },
-    {
-      "key": "shade",
-      "x": 1078,
+      "x": 1000,
       "y": 889,
       "numTiles": 1,
       "depth": 100
@@ -155,10 +256,10 @@
   "enemies": [
     {
       "key": "peasant",
-      "x": 30,
-      "y": 805,
-      "minX": 10,
-      "maxX": 330,
+      "x": 430,
+      "y": 905,
+      "minX": 410,
+      "maxX": 730,
       "direction": 1,
       "speed": 100,
       "depth": 1,
@@ -167,14 +268,79 @@
     {
       "key": "peasant",
       "x": 1000,
-      "y": 805,
+      "y": 905,
       "minX": 900,
       "maxX": 1300,
       "direction": -1,
       "speed": 100,
       "depth": 1,
       "anim": "peasant_walking"
+    },
+    {
+      "key": "peasant",
+      "x": 2000,
+      "y": 905,
+      "minX": 1400,
+      "maxX": 2300,
+      "direction": -1,
+      "speed": 100,
+      "depth": 1,
+      "anim": "peasant_walking"
+    },
+    {
+      "key": "peasant",
+      "x": 2200,
+      "y": 905,
+      "minX": 1800,
+      "maxX": 2600,
+      "direction": -1,
+      "speed": 100,
+      "depth": 1,
+      "anim": "peasant_walking"
+    },
+    {
+      "key": "peasant",
+      "x": 1000,
+      "y": 905,
+      "minX": 900,
+      "maxX": 1300,
+      "direction": -1,
+      "speed": 100,
+      "depth": 1,
+      "anim": "peasant_walking"
+    },
+    {
+      "key": "peasant",
+      "x": 2100,
+      "y": 56,
+      "minX": 2070,
+      "maxX": 2235,
+      "direction": -1,
+      "speed": 100,
+      "depth": 1,
+      "anim": "peasant_walking"
     }
 
+
+
+  ],
+
+  "keys": [
+    {
+      "key": "key",
+      "x": 1270,
+      "y": 350
+    }
+  ],
+
+  "stars": [
+    {
+      "x": 200,
+      "y": 915
+    },
+    {
+      "x": 1000,
+      "y": 700
+    }
   ]
 }

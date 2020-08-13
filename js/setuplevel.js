@@ -11,6 +11,12 @@ gameScene.setupLevel = function(){
 
   this.shadows = this.physics.add.staticGroup();
 
+  this.keys = this.physics.add.group();
+
+  this.sstars = this.physics.add.group();
+
+  this.knives = this.physics.add.group();
+
   this.levelData.platforms.forEach((platform)=>{
     let newObj;
     if(platform.numTiles == 1){
@@ -30,6 +36,10 @@ gameScene.setupLevel = function(){
     newObj.body.checkCollision.right = coll[platform.key].right;
 
     newObj.setDepth(platform.depth);
+
+    if(platform.key == 'stick_test'){
+      newObj.rotation = -0.1;
+    }
 
   });
 
@@ -77,8 +87,29 @@ gameScene.setupLevel = function(){
       newEnemy.body.setCollideWorldBounds(true);
       newEnemy.setDepth(enemy.depth);
 
+      newEnemy.key = enemy.key;
+      newEnemy.readyToFire = true;
 
+      newEnemy.isAlive = true;
   });
+
+  this.levelData.keys.forEach((key)=>{
+    let newKey;
+    newKey = this.add.sprite(key.x, key.y, key.key, 0);
+    newKey.anims.play('key');
+
+    this.keys.add(newKey);
+  });
+
+   this.levelData.stars.forEach((star)=>{
+     let newStar;
+     newStar = this.add.sprite(star.x, star.y, 'star', 0);
+     newStar.setScale(2);
+     newStar.anims.play('star');
+
+     this.sstars.add(newStar);
+     newStar.body.setBounce(0.7);
+});
 
 
 }

@@ -9,9 +9,16 @@ gameScene.jumpStrength = -600;
 gameScene.heart = [];
 gameScene.lives = 3;
 
+gameScene.stars = [];
+
+gameScene.numStars = 0;
+gameScene.maxNinjastars = 3;
+
 gameScene.inShadow = false;
 
 gameScene.dying = false;
+
+gameScene.readyToFire = true;
 
 var coll = {
   'brick' : {
@@ -44,6 +51,24 @@ var coll = {
     left: false,
     right: false
   },
+  'ground2': {
+    up: true,
+    down: false,
+    left: false,
+    right: false
+  },
+  'ground2left': {
+    up: true,
+    down: false,
+    left: false,
+    right: false
+  },
+  'ground2right': {
+    up: true,
+    down: false,
+    left: false,
+    right: false
+  },
   'shade': {
     up: false,
     down: false,
@@ -58,8 +83,8 @@ var coll = {
 
 var config = {
   type: Phaser.AUTO,
-  width: 640,
-  height: 480,
+  width: 1440,
+  height: 720,
   scene: gameScene,
   title: 'Shadow Ninja',
   pixelArt: true,
